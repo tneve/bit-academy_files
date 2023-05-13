@@ -1,0 +1,15 @@
+h1 {
+    font-size: xx-large;
+}
+
+h2 {
+    font-size: large;
+}
+
+table, th, td {
+    border: solid black 2px;
+}
+th, td {
+    width: 200px;
+    padding: 2px;
+}

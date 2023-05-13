@@ -1,0 +1,37 @@
+th {
+    font-size: large;
+}
+
+td {
+    border: solid grey 1px;
+    width: 35px;
+    text-align: center;
+    padding-top: 1px;
+    padding-bottom: 3px;
+}
+
+td:hover {
+    background-color: yellow;
+    cursor: pointer;
+}
+
+.orange {
+    color:green;
+    background-color: orange;
+}
+
+.hotpink {
+    background-color:hotpink ;
+}
+
+.aqua {
+    background-color: aqua;
+}
+
+.peru {
+    background-color: peru;
+}
+
+.empty {
+    background-color: white;
+}

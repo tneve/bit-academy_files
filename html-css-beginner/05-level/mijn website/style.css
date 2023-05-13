@@ -1,0 +1,41 @@
+body {
+    background-color: red;
+}
+
+div{
+    background-color: brown;
+}
+
+h1 {
+    color: green;
+    font-size:xx-large;
+}
+
+h2 {
+    color: gold;
+    font-size: 150%;
+}
+
+img {
+    width: 300px;
+}
+
+span {
+    color: grey;
+}
+section {
+    background-color: aquamarine;
+    color: darkblue;
+}
+header {
+    border-bottom-style: solid;
+    border-color: black;
+}
+footer {
+    border-style: solid;
+    border-color: black;
+    text-align: center;
+    padding: 3px;
+    background-color: DarkSalmon;
+    color: brown
+}

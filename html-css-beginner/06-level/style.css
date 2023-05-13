@@ -1,0 +1,15 @@
+input {
+    min-width: 200px;
+    border-radius: 3px; 
+    padding-bottom: 5px;
+}
+
+textarea {
+    border-style: solid;
+    border-width: 3px;
+    border-color: red;
+}
+
+textarea:focus {
+    border-color: green;
+  }
