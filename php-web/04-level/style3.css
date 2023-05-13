@@ -1,0 +1,26 @@
+.error {
+    color: red;
+}
+
+p {
+    margin-left: 200px;
+}
+
+div {
+    display: block;
+    margin-left: 200px;
+    margin-top: 50px;
+}
+
+input>#number1,
+input>#number2 {
+    display: inline-block;
+    width: 200px;
+
+}
+
+span,
+h2 {
+    display: inline-block;
+    width: 200px;
+}

@@ -1,0 +1,13 @@
+h2 {
+    display: inline-block;
+    width: 200px;
+}
+
+span {
+    display: inline-block;
+    width: 200px;
+}
+
+div {
+    display: block;
+}
