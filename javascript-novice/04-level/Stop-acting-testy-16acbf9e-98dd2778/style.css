@@ -1,0 +1,20 @@
+#countdownStart {
+    width: 150px;
+    height: 100px;
+    background-color: #012209;
+    font-size: xx-large;
+    color: white;
+    border-radius: 25px;
+}
+
+#countdownBox {
+    width: 100px;
+    height: 100px;
+    background-color: #b46908;
+    color: #fffcf2;
+    border-radius: 25px;
+    font-size: xx-large;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
