@@ -9,7 +9,7 @@ const treinStations = [
 ];
 
 const headers = {
-    "Ocp-Apim-Subscription-Key": "14c574e57b0b4b24b1dced5c828ac6e6",
+    "Ocp-Apim-Subscription-Key": "[Here comes your personal Key]",
     "Content-Type": "application/json",
 };
 
