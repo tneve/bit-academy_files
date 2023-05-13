@@ -1,0 +1,351 @@
+<?php
+
+class Card
+{
+    private string $suit;
+    private string $value;
+
+    public function __construct(string $suit, string $value)
+    {
+        
+            $this->validateSuit($suit);
+            $this->validateValue($value);
+            $this->suit = $suit;
+        $this->value = $value;
+    }
+
+    public function show(): string
+    {
+        switch ($this->suit) {
+            case "harten":
+                $this->suit = '♥️';
+                break;
+            case "ruiten":
+                $this->suit = '♦️';
+                break;
+            case "klaveren":
+                $this->suit = '♣️';
+                break;
+            case "schoppen":
+                $this->suit = '♠️';
+                break;
+        }
+        switch ($this->value) {
+            case "boer":
+                $this->value = "B";
+                break;
+            case "vrouw":
+                $this->value = "V";
+                break;
+            case "heer":
+                $this->value = "H";
+                break;
+            case "aas":
+                $this->value = "A";
+                break;
+        }
+        return $this->suit . $this->value;
+    }
+
+    private function validateSuit($suit)
+    {
+        $possibleSuits = ['harten', 'ruiten', 'klaveren', 'schoppen'];
+        if (!in_array($suit, $possibleSuits)) {
+            throw new InvalidArgumentException('Ongeldige suit');
+        }
+    }
+    private function validateValue($value)
+    {
+        $possibleValues = ['aas', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'boer', 'vrouw', 'heer'];
+        if (!in_array($value, $possibleValues)) {
+            throw new InvalidArgumentException('Ongeldige value');
+        }
+    }
+
+    public function score(): int
+    {
+        $cardValues = ["A" => 11, "2" => 2, "3" => 3, "4" => 4, "5" => 5, "6" => 6, "7" => 7, "8" => 8, "9" => 9, "10" => 10, "B" => 10, "V" => 10, "H" => 10];
+        $score = $cardValues[$this->value];
+        return $score;
+    }
+}
+
+class Deck
+{
+    private array $cards = [];
+
+    public function __construct()
+    {
+        $possibleSuits = ['harten', 'ruiten', 'klaveren', 'schoppen'];
+        $possibleValues = ['aas', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'boer', 'vrouw', 'heer'];
+        foreach ($possibleSuits as $suit) {
+            foreach ($possibleValues as $value) {
+                $card = new Card($suit, $value);
+                array_push($this->cards, $card);
+            }
+        }
+    }
+    public function drawCard(): Card
+    {
+        if (count($this->cards) == 0) {
+            throw new Exception('Er zijn geen kaarten meer');
+        } else {
+            $x = rand(0, count($this->cards) - 1);
+            $drawnCard = $this->cards[$x];
+            unset($this->cards[$x]);
+            $this->cards = array_values($this->cards);
+            return $drawnCard;
+        }
+    }
+}
+
+class Player
+{
+    private string $name;
+    private array $hand = [];
+    public $pass = false;
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
+
+    public function addCard(Card $card)
+    {
+        array_push($this->hand, $card);
+    }
+    public function showHand(): string
+    {
+        $result = $this->name . " has";
+        foreach ($this->hand as $card) {
+            $result = $result . " " . $card->show();
+        }
+        return $result;
+    }
+    public function name(): string
+    {
+        return $this->name;
+    }
+    public function hand(): array
+    {
+        return $this->hand;
+    }
+}
+
+
+class Blackjack
+{
+    public function scoreHand(array $hand): string
+    {
+        $score = 0;
+        foreach ($hand as $card) {
+            $score += $card->score();
+        }
+        switch (true) {
+            case ($score > 21):
+                $result = "Busted";
+                break;
+            case (($score == 21) and (count($hand) == 2)):
+                $result = "Blackjack";
+                break;
+            case (($score == 21) and (count($hand) > 2)):
+                $result = "Twenty-One";
+                break;
+            case (($score < 21) and (count($hand) == 5)):
+                $result = "Five Card Charlie";
+                break;
+            default:
+                $result = $score;
+        }
+        return $result;
+    }
+}
+
+class Dealer
+{
+    private Blackjack $blackjack;
+    private Deck $deck;
+    private array $players = [];
+
+    public function __construct($blackjack, Deck $deck)
+    {
+        array_push($this->players, new Player("Dealer"));
+        $this->blackjack = $blackjack;
+        $this->deck = $deck;
+    }
+
+    public function addPlayer(Player $player)
+    {
+        array_push($this->players, $player);
+    }
+
+
+    public function giveStartingHands()
+    {
+        foreach ($this->players as $player) {
+            for ($i = 1; $i <= 2; $i++) {
+                $this->giveCard($player);
+            }
+        }
+    }
+    public function showHands()
+    {
+        foreach ($this->players as $player) {
+            echo $player->showHand() . "--> " . $this->getScore($player) . PHP_EOL;
+        }
+    }
+
+    public function giveCard(Player $player)
+    {
+        $player->addCard($this->deck->drawCard());
+    }
+
+    public function playGame()
+    {
+        $this->giveStartingHands();
+        $this->showHands();
+        $this->whatAction();
+        $this->showWinner();
+    }
+
+    public function getScore(Player $player): string
+    {
+        $x = $this->blackjack->scoreHand($player->hand());
+        return $x;
+    }
+
+    public function stopTheGame()
+    {
+        foreach ($this->players as $player) {
+            $player->pass = true;
+        }
+    }
+
+    public function passOrCard(Player $player)
+    {
+        if ($player->name() == "Dealer") {
+            if ($this->getScore($player) < 18) {
+                    echo $player->name() . " is drawing another card" . PHP_EOL;
+                    $this->giveCard($player);
+                echo $player->showHand() . "--> " . $this->getScore($player) . PHP_EOL;
+                    $this->checkForBlackjack($player);
+            } else {
+                $player->pass = true;
+            }
+        } else {
+                echo $player->name() . " it's your turn" . PHP_EOL;
+            echo $player->showHand() . "--> " . $this->getScore($player) . PHP_EOL;
+                $ans = readline("Do you want to draw (d) or stop (s)? .....");
+            if ($ans == 'd') {
+                    echo $player->name() . " is drawing another card" . PHP_EOL;
+                    $this->giveCard($player);
+                echo $player->showHand() . "--> " . $this->getScore($player) . PHP_EOL;
+                    $this->checkForBlackjack($player);
+            } else if ($ans == 's') {
+                    $player->pass = true;
+            } else {
+                echo "Wrong input!! Choose 'd' to draw or 's' to stop !!" . PHP_EOL;
+                    $this->passOrCard($player);
+            }
+        }
+    }
+
+    public function checkForBlackjack(Player $player)
+    {
+        switch ($this->getScore($player)) {
+            case "Blackjack":
+                $this->stopTheGame();
+                break;
+            case "Twenty-One":
+                $this->stopTheGame();
+                break;
+            case "Five Card Charlie":
+                $this->stopTheGame();
+                break;
+            case "Busted":
+                if ($player->name() == "Dealer") {
+                    $this->stopTheGame();
+                } else {
+                    $player->pass = true;
+                    break;
+                }
+        }
+    }
+    public function allPlayersPassed(): bool
+    {
+        $allPassed = true;
+        foreach ($this->players as $player) {
+            if ($player->pass == false) {
+                $allPassed = false;
+            }
+        }
+        return $allPassed;
+    }
+
+    public function whatAction()
+    {
+        foreach ($this->players as $player) {
+            $this->checkForBlackjack($player);
+        }
+        while ($this->allPlayersPassed() ==  false) {
+            foreach ($this->players as $player) {
+                if ($player->pass == false) {
+                    $this->passOrCard($player);
+                }
+            }
+        }
+    }
+
+
+    public function showWinner()
+    {
+        $dealer_score = $this->getScore($this->players[0]);
+        switch ($dealer_score) {
+            case "Blackjack":
+            case "Twenty-One":
+            case "Five Card Charlie":
+                echo "Dealer has won!" . PHP_EOL;
+                foreach ($this->players as $player) {
+                    if ($player->name() != "Dealer") {
+                        echo "Too bad. " . $player->name() . " has lost." . PHP_EOL;
+                    }
+                }
+                break;
+            case "Busted":
+                echo "Dealer has lost!" . PHP_EOL;
+                foreach ($this->players as $player) {
+                    if ($player->name() != "Dealer") {
+                        echo "Lucky you. " . $player->name() . " has won." . PHP_EOL;
+                    }
+                }
+                break;
+            default:
+                $dealer_score = intval($dealer_score);
+        }
+        foreach ($this->players as $player) {
+            if (($player->name() != "Dealer") and is_int($dealer_score)) {
+                switch ($this->getScore($player)) {
+                    case "Blackjack":
+                    case "Twenty-One":
+                    case "Five Card Charlie":
+                        echo $player->name() . " has won!" . PHP_EOL;
+                        break;
+                    case "Busted":
+                        echo $player->name() . " has lost!" . PHP_EOL;
+                        break;
+                    default:
+                        if ($this->getScore($player) > $dealer_score) {
+                            echo $player->name() . " has won!" . PHP_EOL;
+                        } else {
+                            echo $player->name() . " has lost!" . PHP_EOL;
+                        }
+                }
+            }
+        }
+    }
+}
+
+$dealer = new Dealer(new Blackjack(), new Deck());
+$dealer->addPlayer(new Player('Player1'));
+$dealer->addPlayer(new Player('Player2'));
+$dealer->playGame();
+

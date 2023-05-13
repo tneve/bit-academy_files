@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let op</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+        </head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Mijn blog</a>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end flex-grow-0 flex-wrap" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Me</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Account
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Settings</a></li>
+                                <li>
+                                    <span data-bs-toggle="modal" data-bs-target="#logoutModal">
+                                        <a class="dropdown-item" href="#">Logout</a>
+                                    </span>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Er zijn nieuwe posts">
+                                <i class="bi bi-bell">
+                                    <span class="badge badge-pill position-absolute top-1 bg-danger">
+                                    </span>
+                                </i>
+                            </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+    </nav>
+    <!-- Modal -->
+    <div class="modal hide" id="logoutModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="logoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="logoutModalLabel">Je gaat uitloggen</h1>
+                    <button type="button" class="btn-close" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Niet opgeslagen wijzigingen zouden verloren kunnen gaan. Weet je zeker dat je wil uitloggen?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Nee</button>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Ja</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong><i class="bi bi-check-circle"></i></strong> Je bent ingelogd
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                <strong><i class="bi bi-info-circle"></i></strong> Je bent ingelogd als admin
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+<div class="container">
+    <div class="row g-3">
+        <div class="col-12 col-md-6">
+            <div class="card">
+                <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" data-bs-pause="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="2000">
+                            <img src="https://picsum.photos/200/300?random=6" class="d-block w-100" alt="randomImage6">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img src="https://picsum.photos/200/300?random=7" class="d-block w-100" alt="randomImage7">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img src="https://picsum.photos/200/300?random=8" class="d-block w-100" alt="randomImage8">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div class="class-body">
+                    <h5 class="card-title">
+                        Title 1
+                        <span class="badge bg-danger">New</span>
+                    </h5>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius soluta, temporibus molestiae hic
+                        ipsum delectus.</p>
+                    <a href="#" class="btn btn-primary">Lees meer</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="card">
+                <img src="https://picsum.photos/200/300?random=2" alt="Foto2" class="card-img-top">
+                <div class="class-body">
+                    <h5 class="card-title">Title 2</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius soluta, temporibus molestiae hic
+                        ipsum delectus.</p>
+                    <a href="#" class="btn btn-primary">Lees meer</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="card">
+                <img src="https://picsum.photos/200/300?random=3" alt="Foto3" class="card-img-top">
+                <div class="class-body">
+                    <h5 class="card-title">Title 3</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius soluta, temporibus molestiae hic
+                        ipsum delectus.</p>
+                    <a href="#" class="btn btn-primary">Lees meer</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="card">
+                <img src="https://picsum.photos/200/300?random=4" alt="Foto4" class="card-img-top">
+                <div class="class-body">
+                    <h5 class="card-title">Title 4</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius soluta, temporibus molestiae hic
+                        ipsum delectus.</p>
+                    <a href="#" class="btn btn-primary">Lees meer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+
+
+
+<script>
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+</script>
+
+</body>
+
+</html>
