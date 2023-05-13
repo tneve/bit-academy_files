@@ -1,0 +1,36 @@
+.navbar {
+    display: flex;
+    background-color: coral;
+    justify-content: space-around;
+    font-weight: bold;
+        width: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.news {
+    width: 30%;
+    padding: 10px;
+}
+
+.news:nth-child(1) {
+    width: 100%;
+    text-align: center;
+}
+#breaking {
+    display: flex;
+    flex-direction: column;
+    order: -2;
+    font-size: xx-large;
+    width: 60%;
+    justify-content: center;
+}
+
+h3 {
+    text-align: center;
+}

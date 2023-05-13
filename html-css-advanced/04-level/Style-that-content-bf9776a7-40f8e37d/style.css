@@ -1,0 +1,24 @@
+.navbar {
+    display: flex;
+    background-color: coral;
+    justify-content: space-around;
+}
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+
+}
+
+.news {
+    width: 30%;
+    padding: 10px;
+
+}
+
+.news:nth-child(1) {
+    width: 100%;
+    text-align: center;
+}
