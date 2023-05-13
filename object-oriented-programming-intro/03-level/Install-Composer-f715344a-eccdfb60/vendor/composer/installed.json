@@ -1,0 +1,50 @@
+{
+    "packages": [
+        {
+            "name": "stephanbouman/code-of-conduct",
+            "version": "v1.0.2",
+            "version_normalized": "1.0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stephanbouman/code-of-conduct.git",
+                "reference": "80780149f3ae52d33671fffb6fd07170340e74a3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stephanbouman/code-of-conduct/zipball/80780149f3ae52d33671fffb6fd07170340e74a3",
+                "reference": "80780149f3ae52d33671fffb6fd07170340e74a3",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4|^8.0|^8.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.6",
+                "phpunit/phpunit": "^9.0"
+            },
+            "time": "2022-05-02T14:42:13+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Stephanbouman\\CodeOfConduct\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Stephan Bouman",
+                    "email": "stephan@creativecycle.nl"
+                }
+            ],
+            "description": "This package throws you a random rule from the code of conduct.",
+            "support": {
+                "issues": "https://github.com/stephanbouman/code-of-conduct/issues",
+                "source": "https://github.com/stephanbouman/code-of-conduct/tree/v1.0.2"
+            },
+            "install-path": "../stephanbouman/code-of-conduct"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

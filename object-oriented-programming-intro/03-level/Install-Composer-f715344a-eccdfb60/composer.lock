@@ -1,0 +1,60 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "e8ca58298333b7d9f5958828d35f1bb2",
+    "packages": [
+        {
+            "name": "stephanbouman/code-of-conduct",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stephanbouman/code-of-conduct.git",
+                "reference": "80780149f3ae52d33671fffb6fd07170340e74a3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stephanbouman/code-of-conduct/zipball/80780149f3ae52d33671fffb6fd07170340e74a3",
+                "reference": "80780149f3ae52d33671fffb6fd07170340e74a3",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4|^8.0|^8.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.6",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Stephanbouman\\CodeOfConduct\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Stephan Bouman",
+                    "email": "stephan@creativecycle.nl"
+                }
+            ],
+            "description": "This package throws you a random rule from the code of conduct.",
+            "support": {
+                "issues": "https://github.com/stephanbouman/code-of-conduct/issues",
+                "source": "https://github.com/stephanbouman/code-of-conduct/tree/v1.0.2"
+            },
+            "time": "2022-05-02T14:42:13+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

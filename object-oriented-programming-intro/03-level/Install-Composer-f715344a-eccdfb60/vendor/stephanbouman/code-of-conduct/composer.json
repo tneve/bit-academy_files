@@ -1,0 +1,23 @@
+{
+    "name": "stephanbouman/code-of-conduct",
+    "description": "This package throws you a random rule from the code of conduct.",
+    "autoload": {
+        "psr-4": {
+            "Stephanbouman\\CodeOfConduct\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Stephan Bouman",
+            "email": "stephan@creativecycle.nl"
+        }
+    ],
+
+    "require": {
+        "php": "^7.4|^8.0|^8.1"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.6",
+        "phpunit/phpunit": "^9.0"
+    }
+}
