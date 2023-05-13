@@ -1,0 +1,50 @@
+body {
+    background-color: whitesmoke;
+}
+
+table tr td {
+    border: 5px solid brown;
+    background-color: yellow;
+}
+
+td {
+    font-size: large;
+}
+
+table {
+    margin-left: 200px;
+}
+
+thead {
+    text-align: center;
+}
+
+h1 {
+    font-size: 5em;
+    margin-left: 200px;
+}
+
+h2 {
+    width: 300 px;
+    font-size: 3em;
+    margin-left: 200px;
+}
+
+p {
+    background-color: coral;
+    font-size: medium;
+    width: 80%;
+    margin-left: 50px;
+    border: solid black 10px;
+}
+
+label,
+span.a {
+    display: inline-block;
+    width: 200px;
+}
+
+iframe {
+    margin-top: 50 px;
+    display: inline;
+}

@@ -1,0 +1,27 @@
+h1,
+h2,
+table {
+    margin-left: 200px;
+
+}
+body {
+    background-color: rgb(182, 135, 135);
+}
+
+table tr td {
+    border: 5px solid brown;
+    background-color: yellow;
+}
+
+table {
+    align-self: center;
+}
+
+thead {
+    text-align: center;
+    font-weight: bold;
+}
+
+h2 {
+    color: brown;
+}

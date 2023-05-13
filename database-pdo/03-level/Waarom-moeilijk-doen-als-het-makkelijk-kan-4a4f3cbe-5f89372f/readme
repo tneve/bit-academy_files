@@ -1,0 +1,9 @@
+Meegestuurde bestanden:
+import.sql (hiermee bouw je de database netland op)
+change.sql (hiermee maak je de tabel media en vul je die)
+index.php (de homepage)
+netland-connection.php (maakt connectie met de netland database)
+edit.php (om wijzigingen aan te brengen)
+insert.php (om data toe te voegen)
+detail.php (om details te bekijken)
+style.css (wat simpele styling) 
